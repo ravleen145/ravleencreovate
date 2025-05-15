@@ -1,0 +1,757 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   CREOVATE - Graphic Design Portfolio
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   /* Bauhaus-inspired geometric letterforms with bright colors */
+    @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+    body {
+      background-color: #0f0f23;
+      font-family: 'Montserrat', sans-serif;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* Custom geometric letter styling for CREOVATE */
+    .creovate-title {
+      font-family: 'Anton', sans-serif;
+      font-weight: 900;
+      font-size: clamp(3rem, 8vw, 7rem);
+      letter-spacing: -0.05em;
+      line-height: 1;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.15em;
+    }
+
+    /* Each letter with a bright color and geometric style */
+    .creovate-title span {
+      display: inline-block;
+      padding: 0.05em 0.1em;
+      clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+      transform-origin: center bottom;
+      font-weight: 900;
+      user-select: none;
+      transition: transform 0.3s ease;
+    }
+    .creovate-title span:hover {
+      transform: scale(1.2) rotate(-5deg);
+      filter: drop-shadow(0 0 5px #fff);
+      cursor: default;
+    }
+    .creovate-title .c { background: #f9e000; color: #0f0f23; }
+    .creovate-title .r { background: #ff3cac; color: #0f0f23; }
+    .creovate-title .e { background: #00fff7; color: #0f0f23; }
+    .creovate-title .o { background: #9b59b6; color: #0f0f23; }
+    .creovate-title .v { background: #f9e000; color: #0f0f23; }
+    .creovate-title .a { background: #ff3cac; color: #0f0f23; }
+    .creovate-title .t { background: #00fff7; color: #0f0f23; }
+    .creovate-title .e2 { background: #9b59b6; color: #0f0f23; }
+
+    /* Tagline styling */
+    .tagline {
+      font-weight: 600;
+      font-size: clamp(1rem, 2vw, 1.5rem);
+      text-align: center;
+      margin-top: 0.5rem;
+      color: #ddd;
+      font-style: italic;
+      letter-spacing: 0.05em;
+      user-select: none;
+    }
+
+    /* New tagline style for "Your Vision, Our Creation" */
+    .new-tagline {
+      font-weight: 700;
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      text-align: center;
+      margin-top: 0.75rem;
+      color: #ff3cac;
+      font-style: normal;
+      letter-spacing: 0.1em;
+      user-select: none;
+      text-transform: uppercase;
+      text-shadow: 0 0 8px #ff3cacaa;
+      font-family: 'Anton', sans-serif;
+    }
+
+    /* Artistic background shapes */
+    .background-shapes {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      overflow: visible;
+    }
+    .shape {
+      position: absolute;
+      border-radius: 0.5rem;
+      opacity: 0.15;
+      filter: drop-shadow(0 0 10px rgba(255 255 255 / 0.1));
+      transform-origin: center;
+      animation: float 10s ease-in-out infinite alternate;
+    }
+    .shape1 {
+      width: 300px; height: 300px;
+      background: linear-gradient(135deg, #ff3cac 0%, #00fff7 100%);
+      top: 10vh; left: -100px;
+      clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+      animation-delay: 0s;
+    }
+    .shape2 {
+      width: 250px; height: 250px;
+      background: linear-gradient(45deg, #f9e000 0%, #9b59b6 100%);
+      bottom: 15vh; right: -80px;
+      clip-path: polygon(0 0, 100% 0, 70% 100%, 0 100%);
+      animation-delay: 3s;
+    }
+    .shape3 {
+      width: 150px; height: 150px;
+      background: #ff3cac;
+      top: 40vh; right: 10vw;
+      clip-path: circle(50% at 50% 50%);
+      animation-delay: 6s;
+    }
+    .shape4 {
+      width: 200px; height: 200px;
+      background: #00fff7;
+      bottom: 40vh; left: 15vw;
+      clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+      animation-delay: 9s;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(-20px) rotate(10deg); }
+    }
+
+    /* About Us Section */
+    .about-section {
+      max-width: 900px;
+      margin: 3rem auto 0;
+      padding: 0 1rem;
+      color: #eee;
+      font-size: clamp(1rem, 1.5vw, 1.125rem);
+      line-height: 1.6;
+      user-select: text;
+      text-align: center;
+      letter-spacing: 0.02em;
+      z-index: 10;
+      position: relative;
+    }
+    .about-section p {
+      margin-bottom: 1.25rem;
+    }
+
+    /* Services section */
+    .services-section {
+      position: relative;
+      z-index: 10;
+      max-width: 1200px;
+      margin: 4rem auto 6rem;
+      padding: 0 1rem;
+    }
+    .services-title {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: #f9e000;
+      text-align: center;
+      margin-bottom: 2rem;
+      letter-spacing: 0.1em;
+      user-select: none;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px #f9e000aa;
+    }
+
+    /* Service cards grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+      gap: 1.8rem;
+    }
+
+    /* Individual service card */
+    .service-card {
+      background: #1a1a3d;
+      border-radius: 1rem;
+      padding: 1.5rem 1rem 2rem;
+      box-shadow: 0 0 15px #ff3cac44;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+      user-select: none;
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 25px #ff3caccc;
+    }
+
+    /* Icon container */
+    .icon-container {
+      width: 70px;
+      height: 70px;
+      margin-bottom: 1rem;
+      border-radius: 0.75rem;
+      background: linear-gradient(135deg, #ff3cac, #00fff7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 10px #ff3cacaa;
+      transition: box-shadow 0.3s ease;
+    }
+    .service-card:hover .icon-container {
+      box-shadow: 0 0 20px #00fff7cc;
+    }
+
+    /* Icon SVG styling */
+    .icon-svg {
+      width: 40px;
+      height: 40px;
+      fill: white;
+    }
+
+    /* Service label */
+    .service-label {
+      font-weight: 700;
+      font-size: 1rem;
+      text-align: center;
+      color: white;
+      letter-spacing: 0.05em;
+    }
+
+    /* Our Work Section */
+    .work-section {
+      max-width: 1200px;
+      margin: 4rem auto 6rem;
+      padding: 0 1rem;
+      z-index: 10;
+      position: relative;
+    }
+    .work-title {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: #00fff7;
+      text-align: center;
+      margin-bottom: 2rem;
+      letter-spacing: 0.1em;
+      user-select: none;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px #00fff7aa;
+    }
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 1.5rem;
+    }
+    .work-card {
+      background: #1a1a3d;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 0 15px #00fff7aa;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+    }
+    .work-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px #00fff7cc;
+    }
+    .work-image {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-bottom: 3px solid #00fff7;
+    }
+    .work-label {
+      padding: 1rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #00fff7;
+      text-align: center;
+      background: #0f0f23;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      max-width: 900px;
+      margin: 4rem auto 6rem;
+      padding: 2rem 1.5rem;
+      background: #1a1a3d;
+      border-radius: 1rem;
+      box-shadow: 0 0 25px #00fff7aa;
+      color: white;
+      position: relative;
+      z-index: 10;
+    }
+    .contact-title {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: #00fff7;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.1em;
+      user-select: none;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px #00fff7aa;
+    }
+    .contact-text {
+      font-size: clamp(1rem, 1.3vw, 1.125rem);
+      text-align: center;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+      color: #ccc;
+      user-select: text;
+    }
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 400px;
+      margin: 0 auto 2rem;
+    }
+    .contact-info-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.1rem;
+      color: white;
+      user-select: text;
+    }
+    .contact-info-item i {
+      color: #ff3cac;
+      font-size: 1.5rem;
+      min-width: 24px;
+      text-align: center;
+    }
+    .contact-info-item a {
+      color: white;
+      text-decoration: underline;
+    }
+    .contact-info-item a:hover {
+      color: #ff3cac;
+    }
+
+    /* Contact form */
+    .contact-form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .contact-form label {
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+      user-select: none;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      background: #0f0f23;
+      border: 2px solid #00fff7;
+      border-radius: 0.5rem;
+      padding: 0.75rem 1rem;
+      color: white;
+      font-size: 1rem;
+      resize: vertical;
+      transition: border-color 0.3s ease;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #ff3cac;
+      box-shadow: 0 0 8px #ff3cacaa;
+    }
+    .contact-form textarea {
+      min-height: 100px;
+    }
+    .contact-form button {
+      background: linear-gradient(135deg, #ff3cac, #00fff7);
+      border: none;
+      border-radius: 0.75rem;
+      padding: 0.75rem 1.5rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #0f0f23;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      user-select: none;
+    }
+    .contact-form button:hover {
+      background: linear-gradient(135deg, #00fff7, #ff3cac);
+    }
+
+    /* Map or location icon */
+    .location-icon {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+      color: #ff3cac;
+      font-size: 3rem;
+      user-select: none;
+      filter: drop-shadow(0 0 5px #ff3cacaa);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 640px) {
+      .creovate-title {
+        font-size: 4rem;
+      }
+      .services-title {
+        font-size: 2rem;
+      }
+      .about-section {
+        font-size: 1rem;
+      }
+      .contact-section {
+        padding: 1.5rem 1rem;
+      }
+      .contact-info {
+        max-width: 100%;
+      }
+      .contact-form {
+        max-width: 100%;
+      }
+      .work-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+ </head>
+ <body>
+  <!-- Artistic background shapes -->
+  <div aria-hidden="true" class="background-shapes">
+   <div class="shape shape1">
+   </div>
+   <div class="shape shape2">
+   </div>
+   <div class="shape shape3">
+   </div>
+   <div class="shape shape4">
+   </div>
+  </div>
+  <!-- Header Section -->
+  <header class="pt-20 px-4 z-10 relative max-w-7xl mx-auto">
+   <h1 aria-label="CREOVATE" class="creovate-title">
+    <span class="c">
+     C
+    </span>
+    <span class="r">
+     R
+    </span>
+    <span class="e">
+     E
+    </span>
+    <span class="o">
+     O
+    </span>
+    <span class="v">
+     V
+    </span>
+    <span class="a">
+     A
+    </span>
+    <span class="t">
+     T
+    </span>
+    <span class="e2">
+     E
+    </span>
+   </h1>
+   <p aria-label="Your Vision, Our Creation" class="new-tagline">
+    Your Vision, Our Creation
+   </p>
+  </header>
+  <!-- About Us Section -->
+  <section aria-label="About CREOVATE" class="about-section">
+   <p>
+    At CREOVATE, we believe that every design tells a story — a story born from creation and fueled by innovation. We are a passionate team of designers, dreamers, and thinkers who specialize in transforming your ideas into impactful visuals. Whether it’s a heartfelt wedding invite, a bold business logo, or a dynamic website layout, we infuse creativity and originality into everything we do.
+   </p>
+   <p>
+    Our name says it all — CREOVATE is where creation meets innovation, and where your vision finds its voice. We blend artistic expression with modern trends to craft designs that are not just beautiful, but unforgettable.
+   </p>
+   <p>
+    Let’s design something remarkable together.
+   </p>
+  </section>
+  <!-- Services Section -->
+  <section aria-labelledby="services-title" class="services-section">
+   <h2 class="services-title" id="services-title">
+    Our Services
+   </h2>
+   <div class="services-grid" role="list">
+    <!-- Service Card Template -->
+    <article aria-label="Logo Design service" class="service-card" role="listitem" tabindex="0">
+     <div aria-hidden="true" class="icon-container">
+      <svg aria-hidden="true" class="icon-svg" focusable="false" viewbox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+       <rect fill="white" height="32" rx="6" ry="6" stroke="none" width="48" x="8" y="16">
+       </rect>
+       <circle cx="32" cy="32" fill="#ff3cac" r="10">
+       </circle>
+      </svg>
+     </div>
+     <div class="service-label">
+      Logo Design
+     </div>
+    </article>
+    <article aria-label="Wedding Invitations service" class="service-card" role="listitem" tabindex="0">
+     <div aria-hidden="true" class="icon-container">
+      <svg aria-hidden="true" class="icon-svg" fill="none" focusable="false" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 64 64">
+       <path d="M12 20h40v24H12z" fill="#00fff7">
+       </path>
+       <path d="M12 20l20 14 20-14">
+       </path>
+       <circle cx="32" cy="32" fill="#ff3cac" r="6">
+       </circle>
+      </svg>
+     </div>
+     <div class="service-label">
+      Wedding Invitations
+     </div>
+    </article>
+    <article aria-label="Birthday Party Invitations service" class="service-card" role="listitem" tabindex="0">
+     <div aria-hidden="true" class="icon-container">
+      <svg aria-hidden="true" class="icon-svg" fill="none" focusable="false" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 64 64">
+       <circle cx="32" cy="32" fill="#f9e000" r="20">
+       </circle>
+       <path d="M32 12v20l12 12" stroke="#0f0f23" stroke-width="4">
+       </path>
+      </svg>
+     </div>
+     <div class="service-label">
+      Birthday Party Invitations
+     </div>
+    </article>
+    <article aria-label="Baby Shower Cards service" class="service-card" role="listitem" tabindex="0">
+     <div aria-hidden="true" class="icon-container">
+      <svg aria-hidden="true" class="icon-svg" fill="none" focusable="false" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 64 64">
+       <rect fill="#9b59b6" height="24" rx="12" ry="12" width="24" x="20" y="20">
+       </rect>
+       <circle cx="32" cy="32" fill="#ff3cac" r="8">
+       </circle>
+      </svg>
+     </div>
+     <div class="service-label">
+      Baby Shower Cards
+     </div>
+    </article>
+    <article aria-label="Commercial Gathering Invites service" class="service-card" role="listitem" tabindex="0">
+     <div aria-hidden="true" class="icon-container">
+      <svg aria-hidden="true" class="icon-svg" fill="none" focusable="false" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 64 64">
+       <rect fill="#00fff7" height="36" rx="4" ry="4" width="44" x="10" y="14">
+       </rect>
+       <line stroke="#ff3cac" stroke-width="4" x1="10" x2="54" y1="30" y2="30">
+       </line>
+       <line stroke="#ff3cac" stroke-width="4" x1="10" x2="54" y1="38" y2="38">
+       </line>
+      </svg>
+     </div>
+     <div class="service-label">
+      Commercial Gathering Invites
+     </div>
+    </article>
+    <article aria-label="Social Events Invitations service" class="service-card" role="listitem" tabindex="0">
+     <div aria-hidden="true" class="icon-container">
+      <svg aria-hidden="true" class="icon-svg" fill="none" focusable="false" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 64 64">
+       <circle cx="32" cy="32" fill="#ff3cac" r="24">
+       </circle>
+       <path d="M20 32h24" stroke="#0f0f23" stroke-width="4">
+       </path>
+       <path d="M32 20v24" stroke="#0f0f23" stroke-width="4">
+       </path>
+      </svg>
+     </div>
+     <div class="service-label">
+      Social Events Invitations
+     </div>
+    </article>
+    <article aria-label="Portfolio Designs service" class="service-card" role="listitem" tabindex="0">
+     <div aria-hidden="true" class="icon-container">
+      <svg aria-hidden="true" class="icon-svg" fill="none" focusable="false" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 64 64">
+       <rect fill="#f9e000" height="36" rx="6" ry="6" width="36" x="14" y="14">
+       </rect>
+       <path d="M14 30h36" stroke="#0f0f23" stroke-width="4">
+       </path>
+       <path d="M30 14v36" stroke="#0f0f23" stroke-width="4">
+       </path>
+      </svg>
+     </div>
+     <div class="service-label">
+      Portfolio Designs
+     </div>
+    </article>
+    <article aria-label="YouTube Thumbnails service" class="service-card" role="listitem" tabindex="0">
+     <div aria-hidden="true" class="icon-container">
+      <svg aria-hidden="true" class="icon-svg" fill="none" focusable="false" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 64 64">
+       <rect fill="#00fff7" height="28" rx="6" ry="6" width="40" x="12" y="18">
+       </rect>
+       <polygon fill="#ff3cac" points="26,22 44,32 26,42">
+       </polygon>
+      </svg>
+     </div>
+     <div class="service-label">
+      YouTube Thumbnails
+     </div>
+    </article>
+    <article aria-label="PowerPoint Presentations service" class="service-card" role="listitem" tabindex="0">
+     <div aria-hidden="true" class="icon-container">
+      <svg aria-hidden="true" class="icon-svg" fill="none" focusable="false" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 64 64">
+       <rect fill="#9b59b6" height="36" rx="4" ry="4" width="36" x="14" y="14">
+       </rect>
+       <path d="M22 22h20v20H22z" fill="#ff3cac">
+       </path>
+       <line stroke="#0f0f23" stroke-width="3" x1="22" x2="42" y1="22" y2="42">
+       </line>
+       <line stroke="#0f0f23" stroke-width="3" x1="42" x2="22" y1="22" y2="42">
+       </line>
+      </svg>
+     </div>
+     <div class="service-label">
+      PowerPoint Presentations
+     </div>
+    </article>
+    <article aria-label="Website Design service" class="service-card" role="listitem" tabindex="0">
+     <div aria-hidden="true" class="icon-container">
+      <svg aria-hidden="true" class="icon-svg" fill="none" focusable="false" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 64 64">
+       <rect fill="#f9e000" height="36" rx="4" ry="4" width="44" x="10" y="14">
+       </rect>
+       <line stroke="#0f0f23" stroke-width="4" x1="10" x2="54" y1="24" y2="24">
+       </line>
+       <line stroke="#0f0f23" stroke-width="4" x1="10" x2="54" y1="34" y2="34">
+       </line>
+       <line stroke="#0f0f23" stroke-width="4" x1="10" x2="54" y1="44" y2="44">
+       </line>
+      </svg>
+     </div>
+     <div class="service-label">
+      Website Design
+     </div>
+    </article>
+   </div>
+  </section>
+  <!-- Our Work Section -->
+  <section aria-labelledby="work-title" class="work-section">
+   <h2 class="work-title" id="work-title">
+    Our Work
+   </h2>
+   <div class="work-grid">
+    <article aria-label="Work sample 1: Logo Design example" class="work-card" tabindex="0">
+     <img alt="Sample logo design with bright pink and dark background" class="work-image" height="300" src="https://storage.googleapis.com/a1aa/image/f6915ca9-a2b3-4954-c830-8b2b70a8d84e.jpg" width="400"/>
+     <div class="work-label">
+      Logo Design
+     </div>
+    </article>
+    <article aria-label="Work sample 2: Wedding Invitation example" class="work-card" tabindex="0">
+     <img alt="Sample wedding invitation design with cyan and dark background" class="work-image" height="300" src="https://storage.googleapis.com/a1aa/image/021b3c73-c418-4642-a16f-a27fadacf5f3.jpg" width="400"/>
+     <div class="work-label">
+      Wedding Invitations
+     </div>
+    </article>
+    <article aria-label="Work sample 3: Birthday Party Invitation example" class="work-card" tabindex="0">
+     <img alt="Sample birthday party invitation design with yellow and dark background" class="work-image" height="300" src="https://storage.googleapis.com/a1aa/image/3bad1e3a-3bb8-4140-997f-e9577bdf9658.jpg" width="400"/>
+     <div class="work-label">
+      Birthday Party Invitations
+     </div>
+    </article>
+    <article aria-label="Work sample 4: Website Design example" class="work-card" tabindex="0">
+     <img alt="Sample website design with purple and dark background" class="work-image" height="300" src="https://storage.googleapis.com/a1aa/image/dbf380dd-ef17-4f55-90ff-eb9c6fa713d8.jpg" width="400"/>
+     <div class="work-label">
+      Website Design
+     </div>
+    </article>
+   </div>
+  </section>
+  <!-- Contact Us Section -->
+  <section aria-labelledby="contact-title" class="contact-section">
+   <h2 class="contact-title" id="contact-title">
+    📩 Contact Us
+   </h2>
+   <p class="contact-text">
+    We’d love to hear from you! Whether you have a project in mind or just want to say hello, feel free to reach out. Let’s bring your ideas to life!
+   </p>
+   <div class="contact-info" role="list">
+    <div class="contact-info-item" role="listitem">
+     <i aria-hidden="true" class="fas fa-envelope">
+     </i>
+     <span>
+      📧 Email:
+      <a class="underline hover:text-pink-400" href="mailto:creovatedesigns@gmail.com">
+       creovatedesigns@gmail.com
+      </a>
+     </span>
+    </div>
+    <div class="contact-info-item" role="listitem">
+     <i aria-hidden="true" class="fas fa-user">
+     </i>
+     <span>
+      👤 Name: CREOVATE Team
+     </span>
+    </div>
+    <div class="contact-info-item" role="listitem">
+     <i aria-hidden="true" class="fas fa-phone">
+     </i>
+     <span>
+      📱 Contact Number: +91-7006991895
+     </span>
+    </div>
+    <div class="contact-info-item" role="listitem">
+     <i aria-hidden="true" class="fab fa-instagram">
+     </i>
+     <span>
+      📸 Instagram:
+      <a class="underline hover:text-pink-400" href="https://www.instagram.com/trycreovatedesigns" rel="noopener noreferrer" target="_blank">
+       trycreovatedesigns
+      </a>
+     </span>
+    </div>
+    <div class="contact-info-item" role="listitem">
+     <i aria-hidden="true" class="fab fa-linkedin">
+     </i>
+     <span>
+      🔗 LinkedIn:
+      <a class="underline hover:text-pink-400" href="https://www.linkedin.com/company/trycreovate" rel="noopener noreferrer" target="_blank">
+       www.linkedin.com/company/trycreovate
+      </a>
+     </span>
+    </div>
+   </div>
+   <form aria-label="Contact form" class="contact-form">
+    <label for="name">
+     Name
+    </label>
+    <input autocomplete="name" id="name" name="name" placeholder="Your Full Name or CREOVATE Team" required="" type="text"/>
+    <label for="email">
+     Email
+    </label>
+    <input autocomplete="email" id="email" name="email" placeholder="you@example.com" required="" type="email"/>
+    <label for="message">
+     Message
+    </label>
+    <textarea id="message" name="message" placeholder="Write your message here..." required=""></textarea>
+    <button aria-label="Send message" type="submit">
+     Send Message
+    </button>
+   </form>
+   <div aria-hidden="true" class="location-icon" title="Physical Studio Location">
+    <i class="fas fa-map-marker-alt">
+    </i>
+   </div>
+  </section>
+ </body>
+</html>
